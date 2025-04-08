@@ -1,24 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+
+const [inputValue, setInputValue] = useState("");
+const [tasks, setTasks] = useState([]);
+
+// funtion to handle adding a task
+
+const handleAddTask = (e) => {
+  if (inputValue.trim === "") {
+    return;
+  } else {
+    setTasks([...tasks, inputValue])
+    setInputValue("");
+  }
+};
+
+// Funtion to delete a task
+
+const handleDeleteTask = (task, index) => {
+  setTasks(tasks.filter((task, i) => i !== index));
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <h1>TODO LIST</h1>
+    <div>
+      <input type="text" placeholder="Add a new task..." />
+      <button>Add</button>
+      {/*InputBar component*/}
     </div>
+    <ul> {/* TaskList component */}
+      <li>Task 1</li> {/* TaskItem component */}
+      <li>Task 2</li> {/* TaskItem component */}
+      <li>Task 3</li> {/* TaskItem component */}
+    
+    </ul>
+    </>
   );
 }
 
