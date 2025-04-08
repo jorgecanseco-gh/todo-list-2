@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import TaskItem from './Components/TaskItem/TaskItem';
 import TaskList from './Components/TaskList/TaskList';
+import InputBar from './Components/InputBar/InputBar';
 
 function App() {
 
@@ -30,9 +31,11 @@ const handleDeleteTask = (index) => {
     <>
     <h1>TODO LIST</h1>
     <div>
-      <input type="text" placeholder="Add a new task..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-      <button onClick={handleAddTask}>Add</button>
-      {/*InputBar component*/}
+      <InputBar 
+      inputValue={inputValue}
+      setInputValue={setInputValue}
+      handleAddTask={handleAddTask}
+      />
     </div>
     <section>
       <TaskList 
