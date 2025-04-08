@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
+import TaskItem from './Components/TaskItem/TaskItem';
+import TaskList from './Components/TaskList/TaskList';
 
 function App() {
 
@@ -8,19 +10,19 @@ const [tasks, setTasks] = useState([]);
 
 // funtion to handle adding a task
 
-const handleAddTask = (e) => {
-  if (inputValue.trim === "") {
+const handleAddTask = () => {
+  if (inputValue.trim() === '') {
     return;
   } else {
     setTasks([...tasks, inputValue])
-    setInputValue("");
+    setInputValue('');
   }
 };
 
 // Funtion to delete a task
 
-const handleDeleteTask = (task, index) => {
-  setTasks(tasks.filter((task, i) => i !== index));
+const handleDeleteTask = (index) => {
+  setTasks(tasks.filter((_, i) => i !== index));
 }
 
 
@@ -28,16 +30,16 @@ const handleDeleteTask = (task, index) => {
     <>
     <h1>TODO LIST</h1>
     <div>
-      <input type="text" placeholder="Add a new task..." />
-      <button>Add</button>
+      <input type="text" placeholder="Add a new task..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <button onClick={handleAddTask}>Add</button>
       {/*InputBar component*/}
     </div>
-    <ul> {/* TaskList component */}
-      <li>Task 1</li><span>X</span> {/* TaskItem component */}
-      <li>Task 2</li> {/* TaskItem component */}
-      <li>Task 3</li> {/* TaskItem component */}
-    
-    </ul>
+    <section>
+      <TaskList 
+        tasks={tasks}
+        handleDeleteTask={handleDeleteTask}
+      />
+      </section>
     </>
   );
 }

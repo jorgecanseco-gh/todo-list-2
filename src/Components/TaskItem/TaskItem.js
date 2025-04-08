@@ -9,8 +9,8 @@ function TaskItem(props) {
         <div>
             <li>
                 {tasks}
+                <span onClick={() => handleDeleteTask(index)}>❌</span>
             </li>
-            <span onClick={() => handleDeleteTask(index)}>X</span>
         </div>
     )
 }
