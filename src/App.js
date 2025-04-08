@@ -33,7 +33,7 @@ const handleDeleteTask = (task, index) => {
       {/*InputBar component*/}
     </div>
     <ul> {/* TaskList component */}
-      <li>Task 1</li> {/* TaskItem component */}
+      <li>Task 1</li><span>X</span> {/* TaskItem component */}
       <li>Task 2</li> {/* TaskItem component */}
       <li>Task 3</li> {/* TaskItem component */}
     
