@@ -1,0 +1,15 @@
+
+.inputBar {
+    display:flex;
+    max-width: 1100px;
+    margin-top: 70px;
+    gap: 20px;
+}
+
+.inputField {
+    padding: 15px;
+}
+
+.addButton {
+    width: 30%;
+}
